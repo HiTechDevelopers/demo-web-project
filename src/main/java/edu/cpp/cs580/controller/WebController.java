@@ -132,5 +132,14 @@ public class WebController {
 		modelAndView.addObject("users", listAllUsers());
 		return modelAndView;
 	}
-
+	
+	/******************************************/
+	/**
+	 * For Assign 3
+	 * @author: Chantal Fry
+	 */
+	@RequestMapping(value = "/cs580/hello", method = RequestMethod.GET)
+	String helloWorld() {
+		return "Hello World!";
+	}
 }
