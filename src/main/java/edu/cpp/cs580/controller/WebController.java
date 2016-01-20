@@ -142,4 +142,14 @@ public class WebController {
 	String helloWorld() {
 		return "Hello World!";
 	}
+
+	/******************************************/
+	/**
+	 * For Assign 3
+	 * @author: Fariba
+	 */
+	@RequestMapping(value = "/cs580/fariba", method = RequestMethod.GET)
+	String helloWorldFariba() {
+		return "Hello World from Fariba!";
+	}
 }
