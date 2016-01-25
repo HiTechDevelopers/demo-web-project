@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.cpp.cs580.App;
 import edu.cpp.cs580.data.User;
 import edu.cpp.cs580.data.provider.UserManager;
+import scraper.SpaceFlightNowUpcomingLaunchesScraper;
 
 
 /**
@@ -151,5 +152,18 @@ public class WebController {
 	@RequestMapping(value = "/cs580/fariba", method = RequestMethod.GET)
 	String helloWorldFariba() {
 		return "Hello World from Fariba!";
+	}
+	
+	/******************************************/
+	/**
+	 * For Assign 4
+	 * @author: Chantal Fry
+	 */
+	@RequestMapping(value = "/cs580/jsonoutput", method = RequestMethod.GET)
+	String testJsonOutput() {
+		SpaceFlightNowUpcomingLaunchesScraper s = 
+				new SpaceFlightNowUpcomingLaunchesScraper(
+						"http://spaceflightnow.com/launch-schedule/");
+		return s.getMissionInfo();
 	}
 }
