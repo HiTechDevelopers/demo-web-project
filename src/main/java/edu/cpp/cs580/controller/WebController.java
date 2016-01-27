@@ -162,8 +162,7 @@ public class WebController {
 	@RequestMapping(value = "/cs580/jsonoutput", method = RequestMethod.GET)
 	String testJsonOutput() {
 		SpaceFlightNowUpcomingLaunchesScraper s = 
-				new SpaceFlightNowUpcomingLaunchesScraper(
-						"http://spaceflightnow.com/launch-schedule/");
+				new SpaceFlightNowUpcomingLaunchesScraper();
 		return s.getMissionInfo();
 	}
 }

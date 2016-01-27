@@ -1,22 +1,25 @@
 package scraper;
 
-import org.jsoup.select.Elements;
+import java.util.ArrayList;
 
 public interface SpaceFlightNowScraper {
 	static String[] SPACEX_ROCKETS = { "falcon" };
+	public static final String futureURL = "http://spaceflightnow.com/launch-schedule/";
+	public static final String pastURL = "http://spaceflightnow.com/tracking/launchlog.html";
 
 	abstract String getMissionInfo();
 
-	abstract Elements getDates();
+	abstract ArrayList<String> getDates();
 
-	abstract Elements getRockets();
+	abstract ArrayList<String> getRockets();
 
-	abstract Elements getPayloads();
+	abstract ArrayList<String> getPayloads();
 
-	abstract Elements getLaunchLocations();
+	abstract ArrayList<String> getLaunchLocations();
 
-	abstract Elements getLaunchDescriptions();
+	abstract ArrayList<String> getLaunchDescriptions();
 
-	abstract String writeToJson(Elements dates, Elements launchVehicles, 
-			Elements payloads, Elements locations, Elements descriptions);
+	abstract String writeToJson(ArrayList<String> dates, 
+			ArrayList<String> launchVehicles, ArrayList<String> payloads, 
+			ArrayList<String> locations, ArrayList<String> descriptions);
 }

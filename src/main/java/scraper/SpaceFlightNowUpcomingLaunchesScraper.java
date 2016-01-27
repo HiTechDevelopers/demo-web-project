@@ -6,6 +6,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -14,67 +15,93 @@ import org.json.simple.JSONValue;
 public class SpaceFlightNowUpcomingLaunchesScraper implements SpaceFlightNowScraper {
 	protected Document d;
 
-	public SpaceFlightNowUpcomingLaunchesScraper(String string) {
+	public SpaceFlightNowUpcomingLaunchesScraper() {
 		try {
-			d = Jsoup.connect(string).get();
+			this.d = Jsoup.connect(SpaceFlightNowScraper.futureURL).get();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		};	
 	}
 
 	@Override
 	public String getMissionInfo() {
-		Elements dates = getDates();
-		Elements launchVehicles = getRockets();
-		Elements payloads = getPayloads();
-		Elements locations = getLaunchLocations();
-		Elements descriptions = getLaunchDescriptions();
+		ArrayList<String> dates = getDates();
+		ArrayList<String> launchVehicles = getRockets();
+		ArrayList<String> payloads = getPayloads();
+		ArrayList<String> locations = getLaunchLocations();
+		ArrayList<String> descriptions = getLaunchDescriptions();
 		return writeToJson(dates, launchVehicles, payloads, locations, descriptions);
 	}
 
 	@Override
-	public Elements getDates() {
+	public ArrayList<String> getDates() {
 		Elements dates = d.select(".launchdate");
-		return dates;
+		Elements times = d.select("div.missiondata");
+		ArrayList<String> finalizedDates = new ArrayList<String>();
+		for (Element e : dates) {
+			finalizedDates.add(e.ownText() + 
+					(times.get(finalizedDates.size()).text()
+							.split("window:|period:|time:"))[1]
+									.split("Launch site:")[0]);
+		}
+		return finalizedDates;
 	}
 
 	@Override
-	public Elements getRockets() {
+	public ArrayList<String> getRockets() {
 		Elements launchVehicles = d.select(".mission");
-		return launchVehicles;
+		ArrayList<String> finalizedLaunchVehicles = new ArrayList<String>();
+		for (Element e : launchVehicles) {
+			finalizedLaunchVehicles.add(e.ownText().split(" \u2022 ")[0]);
+		}
+		return finalizedLaunchVehicles;
 	}
 
 	@Override
-	public Elements getPayloads() {
-		return getRockets();
+	public ArrayList<String> getPayloads() {
+		Elements payloads = d.select(".mission");
+		ArrayList<String> finalizedPayloads = new ArrayList<String>();
+		for (Element e : payloads) {
+			finalizedPayloads.add(e.ownText().split(" \u2022 ")[1]);
+		}
+		return finalizedPayloads;
 	}
 
 	@Override
-	public Elements getLaunchLocations() {
+	public ArrayList<String> getLaunchLocations() {
 		Elements locations = d.select("div.missiondata");
-		return locations;
+		ArrayList<String> finalizedLocations = new ArrayList<String>();
+		for (Element e : locations) {
+			finalizedLocations.add(e.text().split("Launch site:")[1]);
+		}
+		return finalizedLocations;
 	}
 
 	@Override
-	public Elements getLaunchDescriptions() {
+	public ArrayList<String> getLaunchDescriptions() {
 		Elements descriptions = d.select("div.missdescrip");
-		return descriptions;
+		ArrayList<String> finalizedDescriptions = new ArrayList<String>();
+		for (Element e : descriptions) {
+			finalizedDescriptions.add(e.ownText());
+		}
+		return finalizedDescriptions;
 	}
 
 	@Override
-	public String writeToJson(Elements dates, Elements launchVehicles,
-			Elements payloads, Elements locations, Elements descriptions) {
+	public String writeToJson(ArrayList<String> dates, ArrayList<String> launchVehicles,
+			ArrayList<String> payloads, ArrayList<String> locations, ArrayList<String> descriptions) {
 		JSONObject parent = new JSONObject();
 		JSONArray a = new JSONArray();
 		for (int i = 0; i < dates.size(); i++) {
 			for (String s : SpaceFlightNowScraper.SPACEX_ROCKETS) {
-				if ((launchVehicles.get(i).ownText().toLowerCase()).contains(s)) {
+				if ((launchVehicles.get(i).toLowerCase()).contains(s)) {
 					JSONObject o = new JSONObject();
-					o.put("date", dates.get(i).ownText());
-					o.put("launchVehicle", launchVehicles.get(i).ownText().split(" \u2022 ")[0]);
-					o.put("payload", payloads.get(i).ownText().split(" \u2022 ")[1]);
-					o.put("launchLocation", locations.get(i).text());
-					o.put("description", descriptions.get(i).ownText());
+					o.put("date", dates.get(i));
+					o.put("launchVehicle", launchVehicles.get(i));
+					o.put("payload", payloads.get(i));
+					o.put("launchLocation", locations.get(i));
+					o.put("description", descriptions.get(i));
 					a.add(o);
 				}
 			}
