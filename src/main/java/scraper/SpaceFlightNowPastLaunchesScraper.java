@@ -1,6 +1,10 @@
 package scraper;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
@@ -15,7 +19,7 @@ public class SpaceFlightNowPastLaunchesScraper implements SpaceFlightNowScraper 
 
 	private Document d;
 
-	public SpaceFlightNowPastLaunchesScraper(Document d) {
+	public SpaceFlightNowPastLaunchesScraper() {
 		try {
 			this.d = Jsoup.connect(SpaceFlightNowScraper.pastURL).get();
 		} catch (IOException e) {
@@ -118,6 +122,14 @@ public class SpaceFlightNowPastLaunchesScraper implements SpaceFlightNowScraper 
 		parent.put("upcomingLaunches", a);
 
 		String jsonString = JSONValue.toJSONString(parent);
+		
+		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+				new FileOutputStream("./src/main/resources/static/data/past_launches.json"), "utf-8"))) {
+			writer.write(jsonString);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		return jsonString;
 	}
