@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.common.math.IntMath;
+
 import edu.cpp.cs580.App;
 import scraper.SpaceFlightNowPastLaunchesScraper;
 import scraper.SpaceFlightNowUpcomingLaunchesScraper;
@@ -37,9 +39,23 @@ public class WebController {
 	 */
 	@RequestMapping(value = "/cs580/fariba", method = RequestMethod.GET)
 	String helloWorldFariba() {
-		return "Hello World from Fariba!";
+		return "Hello world from Fariba!";
 	}
-	
+
+	/******************************************/
+	/**
+	 * For Assign 4
+	 * @author: Fariba
+	 */
+	@RequestMapping(value = "/cs580/gcd", method = RequestMethod.GET)
+	String helloWorldGcd() {
+		int a = 18;
+		int b = 24;
+		int gcd = IntMath.gcd(a, b);
+
+		return "IntMath::gcd() example: GCD of "+a+" and "+b+" is "+gcd;
+	}
+
 	/******************************************/
 	/**
 	 * For Assign 4
@@ -47,18 +63,18 @@ public class WebController {
 	 */
 	@RequestMapping(value = "/cs580/getupcominglaunches", method = RequestMethod.GET)
 	String getUpcomingLaunches() {
-		SpaceFlightNowUpcomingLaunchesScraper s = 
+		SpaceFlightNowUpcomingLaunchesScraper s =
 				new SpaceFlightNowUpcomingLaunchesScraper();
 		return s.getMissionInfo();
 	}
-	
+
 	/******************************************/
 	/**
 	 * @author: Chantal Fry
 	 */
 	@RequestMapping(value = "/cs580/getpastlaunches", method = RequestMethod.GET)
 	String getPastLaunches() {
-		SpaceFlightNowPastLaunchesScraper s = 
+		SpaceFlightNowPastLaunchesScraper s =
 				new SpaceFlightNowPastLaunchesScraper();
 		return s.getMissionInfo();
 	}
