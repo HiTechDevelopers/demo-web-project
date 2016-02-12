@@ -25,7 +25,7 @@ public class SpaceFlightNowPastLaunchesScraper implements SpaceFlightNowScraper 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		};	
+		};
 	}
 
 	@Override
@@ -92,7 +92,15 @@ public class SpaceFlightNowPastLaunchesScraper implements SpaceFlightNowScraper 
 		ArrayList<String> finalizedDescriptions = new ArrayList<String>();
 		for (Element e : descriptions) {
 			try {
-				finalizedDescriptions.add((e.toString().split("<\\/b>")[2]).split("<br>")[2]);
+				String temp = (e.toString().split("<\\/b>")[2]).split("<br>")[2];
+				temp = temp.replaceAll("<\\/font><\\/td>", "");
+				temp = temp.replaceAll("Read our <a href=(.*).", "");
+				temp = temp.replaceAll("See our <a href=(.*).", "");
+				temp = temp.replaceAll("Follow our <a href=(.*).", "");
+				temp = temp.replaceAll("Follow our <a href=(.*).", "");
+				temp = temp.replaceAll("<a href=(.*)Delayed<\\/a>.", "Delayed");
+				temp = temp.replaceAll("<b>.", "");
+				finalizedDescriptions.add(temp);
 			} catch (Exception exception) {
 				continue;
 			}
@@ -101,8 +109,8 @@ public class SpaceFlightNowPastLaunchesScraper implements SpaceFlightNowScraper 
 	}
 
 	@Override
-	public String writeToJson(ArrayList<String> dates, 
-			ArrayList<String> launchVehicles, ArrayList<String> payloads, 
+	public String writeToJson(ArrayList<String> dates,
+			ArrayList<String> launchVehicles, ArrayList<String> payloads,
 			ArrayList<String> locations, ArrayList<String> descriptions) {
 		JSONObject parent = new JSONObject();
 		JSONArray a = new JSONArray();
@@ -122,9 +130,9 @@ public class SpaceFlightNowPastLaunchesScraper implements SpaceFlightNowScraper 
 		parent.put("upcomingLaunches", a);
 
 		String jsonString = JSONValue.toJSONString(parent);
-		
+
 		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-				new FileOutputStream("./src/main/resources/static/data/past_launches.json"), "utf-8"))) {
+				new FileOutputStream("./src/main/resources/static/data/past_launches.json", false), "utf-8"))) {
 			writer.write(jsonString);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
