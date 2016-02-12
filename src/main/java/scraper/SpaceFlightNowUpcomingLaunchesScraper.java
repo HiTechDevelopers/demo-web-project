@@ -28,7 +28,7 @@ public class SpaceFlightNowUpcomingLaunchesScraper implements SpaceFlightNowScra
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		};	
+		};
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class SpaceFlightNowUpcomingLaunchesScraper implements SpaceFlightNowScra
 		Elements times = d.select("div.missiondata");
 		ArrayList<String> finalizedDates = new ArrayList<String>();
 		for (Element e : dates) {
-			finalizedDates.add(e.ownText() + 
+			finalizedDates.add(e.ownText() +
 					(times.get(finalizedDates.size()).text()
 							.split("window:|period:|time:"))[1]
 									.split("Launch site:")[0]);
@@ -118,7 +118,7 @@ public class SpaceFlightNowUpcomingLaunchesScraper implements SpaceFlightNowScra
 		String jsonString = JSONValue.toJSONString(parent);
 
 		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-				new FileOutputStream("./src/main/resources/static/data/upcoming_launches.json"), "utf-8"))) {
+				new FileOutputStream("upcoming_launches.json"), "utf-8"))) {
 			writer.write(jsonString);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

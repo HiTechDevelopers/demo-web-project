@@ -100,6 +100,8 @@ public class SpaceFlightNowPastLaunchesScraper implements SpaceFlightNowScraper 
 				temp = temp.replaceAll("Follow our <a href=(.*).", "");
 				temp = temp.replaceAll("<a href=(.*)Delayed<\\/a>.", "Delayed");
 				temp = temp.replaceAll("<b>.", "");
+				temp = temp.replaceAll("<u>.", "");
+				temp = temp.replaceAll("<\\/u>.", "");
 				finalizedDescriptions.add(temp);
 			} catch (Exception exception) {
 				continue;
@@ -132,7 +134,7 @@ public class SpaceFlightNowPastLaunchesScraper implements SpaceFlightNowScraper 
 		String jsonString = JSONValue.toJSONString(parent);
 
 		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-				new FileOutputStream("./src/main/resources/static/data/past_launches.json", false), "utf-8"))) {
+				new FileOutputStream("past_launches.json", false), "utf-8"))) {
 			writer.write(jsonString);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
