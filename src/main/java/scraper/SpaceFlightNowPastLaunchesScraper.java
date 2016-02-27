@@ -129,9 +129,8 @@ public class SpaceFlightNowPastLaunchesScraper implements SpaceFlightNowScraper 
 				}
 			}
 		}
-		parent.put("upcomingLaunches", a);
 
-		String jsonString = JSONValue.toJSONString(parent);
+		String jsonString = JSONValue.toJSONString(a);
 
 		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
 				new FileOutputStream("past_launches.json", false), "utf-8"))) {

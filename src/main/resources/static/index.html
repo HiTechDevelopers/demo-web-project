@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
    	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 
     <script src="./js/app.js"></script>
   </head>
@@ -24,7 +25,9 @@
                       <tabset>
                         <tab heading="Tab 1">
                           <div id="tab1-content">
-                            <h2>Upcoming Launches Information</h2>
+
+                            <mytable>
+                            </mytable>
 
                             <aside>
                                 <h3>Current News</h3>
@@ -33,6 +36,7 @@
                                   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                                 </p>
                             </aside>
+
                           </div>
                         </tab>
                         <tab heading="Tab 2">

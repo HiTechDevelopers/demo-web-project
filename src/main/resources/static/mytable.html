@@ -1,0 +1,22 @@
+<div>
+  <div ng-controller='mytable'>
+      <label>Upcoming Launches Information</label>
+      <table border="1">
+          <tr>
+              <td>Date</td>
+              <td>Location</td>
+              <td>Vehicle</td>
+              <td>Payload</td>
+              <td>More Info</td>
+          </tr>
+
+          <tr ng:repeat="l in launches">
+              <td>{{l.date}}</td>
+              <td>{{l.launchLocation}}</td>
+              <td>{{l.launchVehicle}}</td>
+              <td>{{l.payload}}</td>
+              <td>{{l.description}}</td>
+          </tr>
+      </table>
+  </div>
+</div>
