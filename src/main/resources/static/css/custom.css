@@ -1,0 +1,35 @@
+.nav-tabs {
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+  float: right;
+  padding-top: 10%;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  color: white;
+  background-color: #e44d26;
+  border: 1px solid rgba(0, 0, 0, 0);
+  width: 105%;
+}
+
+.nav-tabs>li>a {
+  width: 105%;
+  height: 5%;
+}
+
+#tab1-content {
+  position: absolute;
+  left: 3%;
+  top: 12%;
+}
+
+#tab2-content {
+  position: absolute;
+  left: 3%;
+  top: 12%;
+}
+
+@media only screen and (min-width: 480px) {
+  nav a {
+    width: auto;
+  }
+}
