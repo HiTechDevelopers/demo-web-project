@@ -15,7 +15,16 @@
               <td>{{l.launchLocation}}</td>
               <td>{{l.launchVehicle}}</td>
               <td>{{l.payload}}</td>
-              <td>{{l.description}}</td>
+              <td>
+                <md-content>
+                  <md-button>
+                    <md-icon md-svg-src="./img/ic_info_outline_black_24px.svg" style="width: 24px; height: 24px;"></md-icon>
+                    <md-tooltip>
+                        {{l.description}}
+                    </md-tooltip>
+                  </md-button>
+                </md-content>
+              </td>
           </tr>
       </table>
   </div>

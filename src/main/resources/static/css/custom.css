@@ -28,6 +28,50 @@
   top: 12%;
 }
 
+#twitter-widget-0 {
+  width: 400px!important;
+}
+
+table {
+  width: 55%;
+}
+
+td {
+  padding: .5em;
+  font-size: smaller;
+}
+
+.tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button,
+.tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button:hover {
+  box-shadow: none;
+  border: none;
+  transform: none;
+  -webkit-transform: none;
+}
+
+md-tooltip {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  .md-background {
+    border-radius: inherit;
+  }
+  .md-content {
+    height: auto;
+    width: 500px;
+    max-width: 500px;
+    padding: 8px;
+    white-space: pre-line;
+  }
+}
+@media screen and (min-width: 600px) {
+  md-tooltip .md-content {
+    font-size: 12px;
+    height: auto;
+    width: 300px;
+    padding: 8px;
+    max-width: 300px;
+  }
+}
+
 @media only screen and (min-width: 480px) {
   nav a {
     width: auto;

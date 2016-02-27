@@ -1,4 +1,4 @@
-var app = angular.module('app', [])
+var app = angular.module('app', ['ngAnimate', 'ngAria', 'ngMaterial'])
 
 // Define directives here
 app.directive('tabset', function () {
