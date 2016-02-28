@@ -2,6 +2,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0);
   float: right;
   padding-top: 10%;
+  width: 140%;
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
@@ -16,6 +17,33 @@
   height: 5%;
 }
 
+.myGrid {
+    width: 800px;
+    height: auto;
+  }
+
+.ui-grid-header-cell-wrapper {
+  height: 0%;
+}
+
+.ui-grid-viewport {
+  height: auto!important;
+}
+
+.ui-grid-viewport .ui-grid-cell-contents {
+  word-wrap: break-word;
+  white-space: normal !important;
+}
+
+.ui-grid-row, .ui-grid-cell {
+  height: auto !important;
+}
+
+.ui-grid-row div[role=row] {
+  display: flex ;
+  align-content: stretch;
+}
+
 #tab1-content {
   position: absolute;
   left: 3%;
@@ -23,6 +51,12 @@
 }
 
 #tab2-content {
+  position: absolute;
+  left: 3%;
+  top: 12%;
+}
+
+#tab3-content {
   position: absolute;
   left: 3%;
   top: 12%;
@@ -51,6 +85,11 @@ td {
 
 md-tooltip {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  width: 300px;
+  height: 300px;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: auto;
   .md-background {
     border-radius: inherit;
   }
@@ -60,15 +99,24 @@ md-tooltip {
     max-width: 500px;
     padding: 8px;
     white-space: pre-line;
+    word-wrap: break-word;
+    word-break: break-all;
   }
+}
+md-button {
+  min-width: 24;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 @media screen and (min-width: 600px) {
   md-tooltip .md-content {
     font-size: 12px;
-    height: auto;
+    height: 300px;
     width: 300px;
     padding: 8px;
     max-width: 300px;
+    word-wrap: break-word;
+    word-break: break-all;
   }
 }
 

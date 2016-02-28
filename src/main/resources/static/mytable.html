@@ -1,31 +1,6 @@
 <div>
   <div ng-controller='mytable'>
-      <label>Upcoming Launches Information</label>
-      <table border="1">
-          <tr>
-              <td>Date</td>
-              <td>Location</td>
-              <td>Vehicle</td>
-              <td>Payload</td>
-              <td>More Info</td>
-          </tr>
-
-          <tr ng:repeat="l in launches">
-              <td>{{l.date}}</td>
-              <td>{{l.launchLocation}}</td>
-              <td>{{l.launchVehicle}}</td>
-              <td>{{l.payload}}</td>
-              <td>
-                <md-content>
-                  <md-button>
-                    <md-icon md-svg-src="./img/ic_info_outline_black_24px.svg" style="width: 24px; height: 24px;"></md-icon>
-                    <md-tooltip>
-                        {{l.description}}
-                    </md-tooltip>
-                  </md-button>
-                </md-content>
-              </td>
-          </tr>
-      </table>
+    <label>Upcoming Launches Information</label>
+    <div ui-grid="gridOptions" class="myGrid"></div>
   </div>
 </div>
