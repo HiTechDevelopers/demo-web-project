@@ -18,7 +18,7 @@
 }
 
 .myGrid {
-    width: 800px;
+    width: 60em;
     height: auto;
   }
 
@@ -33,6 +33,7 @@
 .ui-grid-viewport .ui-grid-cell-contents {
   word-wrap: break-word;
   white-space: normal !important;
+  font-size: smaller;
 }
 
 .ui-grid-row, .ui-grid-cell {
@@ -83,25 +84,16 @@ td {
   -webkit-transform: none;
 }
 
+md-content {
+  overflow : hidden;
+}
+
 md-tooltip {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
-  width: 300px;
-  height: 300px;
+  width: auto;
+  height: auto;
   word-wrap: break-word;
-  word-break: break-all;
   overflow: auto;
-  .md-background {
-    border-radius: inherit;
-  }
-  .md-content {
-    height: auto;
-    width: 500px;
-    max-width: 500px;
-    padding: 8px;
- 	 
-    /*word-wrap: break-word;
-    word-break: break-all;*/
-  }
 }
 md-button {
   min-width: 24;
@@ -111,12 +103,11 @@ md-button {
 @media screen and (min-width: 600px) {
   md-tooltip .md-content {
     font-size: 12px;
-    height: 300px;
+    height: auto;
     width: 300px;
     padding: 8px;
     max-width: 300px;
     word-wrap: break-word;
-    word-break: break-all;
   }
 }
 

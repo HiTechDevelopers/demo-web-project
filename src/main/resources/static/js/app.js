@@ -19,11 +19,11 @@ app.directive('tabset', function () {
         }
       }
       self.select = function (selectedTab) {
-          angular.forEach(self.tabs, function (tab) {
-            if (tab.active && tab !== selectedTab) {
-              tab.active = false
-            }
-          })
+        angular.forEach(self.tabs, function (tab) {
+          if (tab.active && tab !== selectedTab) {
+            tab.active = false
+          }
+        })
         selectedTab.active = true
       }
     }
@@ -55,32 +55,29 @@ app.directive('content', function () {
 })
 
 app.controller('mytable', function ($scope, $http) {
-
-	$scope.gridOptions = {};
+  $scope.gridOptions = {}
   $scope.gridOptions = {
-		columnDefs: [
-    { field: 'date', displayName: 'Date', minWidth: 70, maxWidth: 150},
-    { field: 'launchVehicle', displayName: 'Vehicle', minWidth: 70, maxWidth: 150},
-    { field: 'launchLocation', displayName: 'Location', width: '*'},
-    { field: 'payload', displayName: 'Payload', minWidth: 70, maxWidth: 150},
-    { field: 'description', displayName: 'More Info', cellTooltip: '{{row.entity.description}}',
-      cellTemplate: '<div class="ui-grid-cell-contents"><md-content><md-button><md-icon md-svg-src="./img/ic_info_outline_black_24px.svg" style="width: 24px; height: 24px; margin-right: 20; margin:bottom: 10;"></md-icon><md-tooltip md-direction="left" style="width: 300px; height: 300px;">{{row.entity.description}}</md-tooltip></md-button><md-content></div>',
-      minWidth: 50, maxWidth: 100}
-  ],
-	rowHeight: '6%'
-}
+    columnDefs: [
+      {field: 'date', displayName: 'Date', minWidth: 50, maxWidth: 200},
+      {field: 'launchVehicle', displayName: 'Vehicle', minWidth: 50, maxWidth: 100},
+      {field: 'launchLocation', displayName: 'Location', width: 335},
+      {field: 'payload', displayName: 'Payload', minWidth: 50, maxWidth: 210},
+      {field: 'description', displayName: 'More Info', cellTooltip: '{{row.entity.description}}',
+        cellTemplate: '<div class="ui-grid-cell-contents"><md-content><md-button><md-icon md-svg-src="./img/ic_info_outline_black_24px.svg" style="width: 24px; height: 24px; margin-right: 20; margin:bottom: 10;"></md-icon><md-tooltip md-direction="left" style="width: 300px; height: 300px;">{{row.entity.description}}</md-tooltip></md-button><md-content></div>',
+        minWidth: 50, maxWidth: 100}
+    ],
+    rowHeight: '2.5%'
+  }
 
+  $scope.loadData = function () {
+    $scope.launches = []
+    $http.get('./upcoming_launches.json')
+      .success(function (data) {
+        $scope.gridOptions.data = data
+      })
+  }
 
-$scope.loadData = function () {
-	$scope.launches = []
-	$http.get('./upcoming_launches.json')
-		.success(function (data) {
-			$scope.gridOptions.data = data.upcomingLaunches
-		})
-}
-
-$scope.loadData()
-
+  $scope.loadData()
 })
 
 app.directive('mytable', function () {
@@ -89,5 +86,40 @@ app.directive('mytable', function () {
     templateUrl: 'mytable.html',
     bindToController: true,
     controllerAs: 'mytable'
+  }
+})
+
+app.controller('mytable2', function ($scope, $http) {
+  $scope.gridOptions2 = {}
+  $scope.gridOptions2 = {
+    columnDefs: [
+    {field: 'date', displayName: 'Date', width: '20.79%', minWidth: 50, maxWidth: 200},
+    {field: 'launchVehicle', displayName: 'Vehicle', width: '10.4%', minWidth: 50, maxWidth: 100},
+    {field: 'launchLocation', displayName: 'Location', width: '34.82%', minWidth: 50, maxWidth: 335},
+    {field: 'payload', displayName: 'Payload', width: '21.83%', minWidth: 50, maxWidth: 210},
+    {field: 'description', displayName: 'More Info', cellTooltip: '{{row.entity.description}}',
+      cellTemplate: '<div class="ui-grid-cell-contents"><md-content><md-button><md-icon md-svg-src="./img/ic_info_outline_black_24px.svg" style="width: 24px; height: 24px; margin-right: 20; margin:bottom: 10;"></md-icon><md-tooltip md-direction="left" style="width: 300px; height: 300px;">{{row.entity.description}}</md-tooltip></md-button><md-content></div>',
+      width: '10.4%', minWidth: 50, maxWidth: 100}
+    ],
+    rowHeight: '2.5%'
+  }
+
+  $scope.loadData2 = function () {
+    $scope.launches = []
+    $http.get('./past_launches.json')
+      .success(function (data) {
+        $scope.gridOptions2.data = data
+      })
+  }
+
+  $scope.loadData2()
+})
+
+app.directive('mytable2', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'mytable2.html',
+    bindToController: true,
+    controllerAs: 'mytable2'
   }
 })
