@@ -1,5 +1,9 @@
 package test;
 
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Scanner;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -18,9 +22,17 @@ public class FaribaTest extends TestCase {
 	}
 
 	public void testPastLaunchesScraper() {
-		SpaceFlightNowPastLaunchesScraper s = new SpaceFlightNowPastLaunchesScraper();
-		String jsonInfo = s.getMissionInfo();
-		assertTrue(jsonInfo.length() != 0);
+		String content = null;
+        URLConnection connection = null;
+
+        try {
+          connection =  new URL("http://localhost:8080/cs580/getpastlaunches").openConnection();
+          Scanner scanner = new Scanner(connection.getInputStream());
+          scanner.useDelimiter("\\Z");
+          content = scanner.next();
+        }catch ( Exception ex ) {}
+
+        assertTrue(content.length() == 0);
 
 	}
 }
