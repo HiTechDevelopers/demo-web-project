@@ -98,9 +98,9 @@ md-tooltip {
     width: 500px;
     max-width: 500px;
     padding: 8px;
-    white-space: pre-line;
-    word-wrap: break-word;
-    word-break: break-all;
+ 	 
+    /*word-wrap: break-word;
+    word-break: break-all;*/
   }
 }
 md-button {
