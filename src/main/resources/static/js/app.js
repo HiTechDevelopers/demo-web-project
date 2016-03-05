@@ -58,13 +58,13 @@ app.controller('mytable', function ($scope, $http) {
   $scope.gridOptions = {}
   $scope.gridOptions = {
     columnDefs: [
-      {field: 'date', displayName: 'Date', minWidth: 50, maxWidth: 200},
-      {field: 'launchVehicle', displayName: 'Vehicle', minWidth: 50, maxWidth: 100},
-      {field: 'launchLocation', displayName: 'Location', width: 335},
-      {field: 'payload', displayName: 'Payload', minWidth: 50, maxWidth: 210},
+      {field: 'date', displayName: 'Date', width: '20.79%', minWidth: 50, maxWidth: 200},
+      {field: 'launchVehicle', displayName: 'Vehicle', width: '10.4%', minWidth: 50, maxWidth: 100},
+      {field: 'launchLocation', displayName: 'Location', width: '34.82%', minWidth: 50, maxWidth: 335},
+      {field: 'payload', displayName: 'Payload', width: '21.83%', minWidth: 50, maxWidth: 210},
       {field: 'description', displayName: 'More Info', cellTooltip: '{{row.entity.description}}',
         cellTemplate: '<div class="ui-grid-cell-contents"><md-content><md-button><md-icon md-svg-src="./img/ic_info_outline_black_24px.svg" style="width: 24px; height: 24px; margin-right: 20; margin:bottom: 10;"></md-icon><md-tooltip md-direction="left" style="width: 300px; height: 300px;">{{row.entity.description}}</md-tooltip></md-button><md-content></div>',
-        minWidth: 50, maxWidth: 100}
+        width: '10.4%', minWidth: 75, maxWidth: 100}
     ],
     rowHeight: '2.5%'
   }
@@ -99,7 +99,7 @@ app.controller('mytable2', function ($scope, $http) {
     {field: 'payload', displayName: 'Payload', width: '21.83%', minWidth: 50, maxWidth: 210},
     {field: 'description', displayName: 'More Info', cellTooltip: '{{row.entity.description}}',
       cellTemplate: '<div class="ui-grid-cell-contents"><md-content><md-button><md-icon md-svg-src="./img/ic_info_outline_black_24px.svg" style="width: 24px; height: 24px; margin-right: 20; margin:bottom: 10;"></md-icon><md-tooltip md-direction="left" style="width: 300px; height: 300px;">{{row.entity.description}}</md-tooltip></md-button><md-content></div>',
-      width: '10.4%', minWidth: 50, maxWidth: 100}
+      width: '10.4%', minWidth: 75, maxWidth: 100}
     ],
     rowHeight: '2.5%'
   }

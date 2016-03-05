@@ -3,6 +3,7 @@
   float: right;
   padding-top: 10%;
   width: 140%;
+  position: fixed;
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
@@ -101,20 +102,61 @@ md-button {
   overflow-y: hidden;
 }
 
-
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 640px) {
   .myGrid {
-    width: 47em;
+    width: 600px;
     height: auto;
   }
 
   .header-container {
-    height: 12%;
+    height: 150px;
   }
 
   .nav-tabs {
     width: 178%;
     padding-top: 19%;
+    position: absolute;
+    top: -4%;
+    left: 20%;
+  }
+
+  .nav>li>a {
+    padding: 20px 15px;
+  }
+
+  .top-tab {
+    height: 34px;
+  }
+
+  #tab1-content {
+    top: 150px;
+  }
+
+  #tab2-content {
+    top: 150px;
+  }
+
+  #tab3-content {
+    top: 150px;
+  }
+}
+
+
+@media only screen and (min-width: 800px) {
+  .myGrid {
+    width: 750px;
+    height: auto;
+  }
+
+  .header-container {
+    height: 150px;
+  }
+
+  .nav-tabs {
+    width: 178%;
+    padding-top: 19%;
+    top: -10%;
+    left: 45%;
   }
 
   .nav>li>a {
@@ -124,15 +166,30 @@ md-button {
 
 @media only screen and (min-width: 960px) {
   .myGrid {
-    width: 53em;
+    width: 900px;
     height: auto;
+  }
+
+  .nav>li>a {
+    padding: 20px 15px;
   }
 }
 
 @media only screen and (min-width: 1024px) {
 .myGrid {
-    width: 60em;
+    width: 975px;
     height: auto;
+  }
+
+  .nav>li>a {
+    padding: 22px 15px;
+  }
+
+  .nav-tabs {
+    width: 178%;
+    padding-top: 19%;
+    top: -135px;
+    left: 50%;
   }
 }
 
