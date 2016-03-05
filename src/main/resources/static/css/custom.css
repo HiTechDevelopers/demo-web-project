@@ -1,9 +1,21 @@
+body {
+  position: inherit;
+}
+
+mytable {
+  position: fixed;
+  top: 150px;
+  left: 40px;
+}
+
+.header-container {
+  height: 150px;
+}
+
 .nav-tabs {
   border-bottom: 1px solid rgba(0, 0, 0, 0);
-  float: right;
-  padding-top: 10%;
-  width: 140%;
-  position: fixed;
+  position: absolute;
+  top: 90px;
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
@@ -17,11 +29,6 @@
   width: 105%;
   height: 5%;
 }
-
-.myGrid {
-    width: 60em;
-    height: auto;
-  }
 
 .ui-grid-header-cell-wrapper {
   height: 0%;
@@ -47,34 +54,21 @@
 }
 
 #tab1-content {
-  position: absolute;
-  left: 3%;
-  top: 12%;
+  position: fixed;
+  left: 40px;
+  top: 150px;
 }
 
 #tab2-content {
-  position: absolute;
-  left: 3%;
-  top: 12%;
+  position: fixed;
+  left: 40px;
+  top: 150px;
 }
 
 #tab3-content {
-  position: absolute;
-  left: 3%;
-  top: 12%;
-}
-
-#twitter-widget-0 {
-  width: 400px!important;
-}
-
-table {
-  width: 55%;
-}
-
-td {
-  padding: .5em;
-  font-size: smaller;
+  position: fixed;
+  left: 40px;
+  top: 150px;
 }
 
 .tooltipdemoBasicUsage md-toolbar .md-toolbar-tools .md-button,
@@ -108,36 +102,10 @@ md-button {
     height: auto;
   }
 
-  .header-container {
-    height: 150px;
-  }
-
   .nav-tabs {
-    width: 178%;
-    padding-top: 19%;
-    position: absolute;
-    top: -4%;
-    left: 20%;
-  }
-
-  .nav>li>a {
-    padding: 20px 15px;
-  }
-
-  .top-tab {
-    height: 34px;
-  }
-
-  #tab1-content {
-    top: 150px;
-  }
-
-  #tab2-content {
-    top: 150px;
-  }
-
-  #tab3-content {
-    top: 150px;
+    width: 480px;
+    top: 90px;
+    left: 300px;
   }
 }
 
@@ -148,30 +116,10 @@ md-button {
     height: auto;
   }
 
-  .header-container {
-    height: 150px;
-  }
-
-  .nav-tabs {
-    width: 178%;
-    padding-top: 19%;
-    top: -10%;
-    left: 45%;
-  }
-
-  .nav>li>a {
-    padding: 20px 15px;
-  }
-}
-
 @media only screen and (min-width: 960px) {
   .myGrid {
     width: 900px;
     height: auto;
-  }
-
-  .nav>li>a {
-    padding: 20px 15px;
   }
 }
 
@@ -179,17 +127,6 @@ md-button {
 .myGrid {
     width: 975px;
     height: auto;
-  }
-
-  .nav>li>a {
-    padding: 22px 15px;
-  }
-
-  .nav-tabs {
-    width: 178%;
-    padding-top: 19%;
-    top: -135px;
-    left: 50%;
   }
 }
 
