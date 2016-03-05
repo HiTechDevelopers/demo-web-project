@@ -100,6 +100,42 @@ md-button {
   overflow-x: hidden;
   overflow-y: hidden;
 }
+
+
+@media only screen and (min-width: 800px) {
+  .myGrid {
+    width: 47em;
+    height: auto;
+  }
+
+  .header-container {
+    height: 12%;
+  }
+
+  .nav-tabs {
+    width: 178%;
+    padding-top: 19%;
+  }
+
+  .nav>li>a {
+    padding: 20px 15px;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .myGrid {
+    width: 53em;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+.myGrid {
+    width: 60em;
+    height: auto;
+  }
+}
+
 @media screen and (min-width: 600px) {
   md-tooltip .md-content {
     font-size: 12px;
