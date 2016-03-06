@@ -123,3 +123,12 @@ app.directive('mytable2', function () {
     controllerAs: 'mytable2'
   }
 })
+
+app.controller('twitterWidget', function ($scope) {
+	function loadTwitter() {!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");}
+
+	var twitter = document.getElementById('twitter-wjs');
+	if (twitter) twitter.remove();
+	loadTwitter(); 
+	console.log('reload');
+ })
