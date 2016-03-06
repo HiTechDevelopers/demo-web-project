@@ -34,17 +34,6 @@
                               };
                               return t;
 }(document, "script", "twitter-wjs"));</script-->
-<script>
-window.twttr = function(d,s,id){
-	var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-	if(!d.getElementById(id)) {
-		js=d.createElement(s);
-		js.id=id;
-		js.src=p+"://platform.twitter.com/widgets.js";
-		fjs.parentNode.insertBefore(js,fjs);
-	}
-}(document,"script","twitter-wjs");
-</script>
 
   </head>
   <body ng-app="app"><!-- V1.1 -->
@@ -78,9 +67,9 @@ window.twttr = function(d,s,id){
 
                             <div id="twitter-steam">
                               <h3>Current News</h3>
-                              <p id="twitter-wjs">
+                              <p id="twitter-wjsc">
                                 <a class="twitter-timeline" href="https://twitter.com/SpaceX" data-widget-id="705949880292741122">Tweets by @SpaceX</a>
-                            <!--script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script-->
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                             </p>
                             </div>
                           </div>
