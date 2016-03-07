@@ -84,13 +84,13 @@ public class WebController {
 		return s.getMissionInfo();
 	}
 	
-	@RequestMapping(value = "/upcoming_launches", method = RequestMethod.GET)
+	@RequestMapping(value = "/data/upcoming_launches", method = RequestMethod.GET)
 	String getUpcomingLaunchesJson() throws IOException {
 		BufferedReader fr = new BufferedReader(new FileReader("./data/upcoming_launches.json"));
 		return fr.readLine();
 	}
 	
-	@RequestMapping(value = "/past_launches", method = RequestMethod.GET)
+	@RequestMapping(value = "/data/past_launches", method = RequestMethod.GET)
 	String getPastLaunchesJson() throws IOException {
 		BufferedReader fr = new BufferedReader(new FileReader("./data/upcoming_launches.json"));
 		return fr.readLine();
