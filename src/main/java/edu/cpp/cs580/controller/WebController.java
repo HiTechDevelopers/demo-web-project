@@ -1,6 +1,7 @@
 package edu.cpp.cs580.controller;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -86,13 +87,13 @@ public class WebController {
 	
 	@RequestMapping(value = "/data/upcoming_launches", method = RequestMethod.GET)
 	String getUpcomingLaunchesJson() throws IOException {
-		BufferedReader fr = new BufferedReader(new FileReader("../data/upcoming_launches.json"));
+		BufferedReader fr = new BufferedReader(new FileReader("data/upcoming_launches.json"));
 		return fr.readLine();
 	}
 	
 	@RequestMapping(value = "/data/past_launches", method = RequestMethod.GET)
 	String getPastLaunchesJson() throws IOException {
-		BufferedReader fr = new BufferedReader(new FileReader("../data/past_launches.json"));
+		BufferedReader fr = new BufferedReader(new FileReader("data/past_launches.json"));
 		return fr.readLine();
 	}
 }
