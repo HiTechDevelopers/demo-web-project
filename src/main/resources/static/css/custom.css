@@ -16,6 +16,7 @@ mytable {
   border-bottom: 1px solid rgba(0, 0, 0, 0);
   position: absolute;
   top: 90px;
+  right: 50px;
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
@@ -100,12 +101,6 @@ md-button {
   .myGrid {
     width: 600px;
     height: auto;
-  }
-
-  .nav-tabs {
-    width: 500px;
-    top: 90px;
-    left: 300px;
   }
 }
 
