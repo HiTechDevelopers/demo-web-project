@@ -71,7 +71,7 @@ app.controller('mytable', function ($scope, $http) {
 
   $scope.loadData = function () {
     $scope.launches = []
-    $http.get('../../../../upcoming_launches.json')
+    $http.get('../../../../../data/upcoming_launches.json')
       .success(function (data) {
         $scope.gridOptions.data = data
       })
@@ -106,7 +106,7 @@ app.controller('mytable2', function ($scope, $http) {
 
   $scope.loadData2 = function () {
     $scope.launches = []
-    $http.get('../../../../past_launches.json')
+    $http.get('../../../../../data/past_launches.json')
       .success(function (data) {
         $scope.gridOptions2.data = data
       })
