@@ -133,7 +133,7 @@ public class SpaceFlightNowPastLaunchesScraper implements SpaceFlightNowScraper 
 		String jsonString = JSONValue.toJSONString(a);
 
 		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-				new FileOutputStream("../data/past_launches.json", false), "utf-8"))) {
+				new FileOutputStream("./data/past_launches.json", false), "utf-8"))) {
 			writer.write(jsonString);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

@@ -1,5 +1,10 @@
 package edu.cpp.cs580.controller;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -77,5 +82,17 @@ public class WebController {
 		SpaceFlightNowPastLaunchesScraper s =
 				new SpaceFlightNowPastLaunchesScraper();
 		return s.getMissionInfo();
+	}
+	
+	@RequestMapping(value = "/upcoming_launches", method = RequestMethod.GET)
+	String getUpcomingLaunchesJson() throws IOException {
+		BufferedReader fr = new BufferedReader(new FileReader("./data/upcoming_launches.json"));
+		return fr.readLine();
+	}
+	
+	@RequestMapping(value = "/past_launches", method = RequestMethod.GET)
+	String getPastLaunchesJson() throws IOException {
+		BufferedReader fr = new BufferedReader(new FileReader("./data/upcoming_launches.json"));
+		return fr.readLine();
 	}
 }

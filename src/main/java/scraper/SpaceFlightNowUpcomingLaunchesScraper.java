@@ -117,7 +117,7 @@ public class SpaceFlightNowUpcomingLaunchesScraper implements SpaceFlightNowScra
 		String jsonString = JSONValue.toJSONString(a);
 
 		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-				new FileOutputStream("../data/upcoming_launches.json"), "utf-8"))) {
+				new FileOutputStream("./data/upcoming_launches.json"), "utf-8"))) {
 			writer.write(jsonString);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
